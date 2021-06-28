@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import './chart_bar.dart';
 import '../models/transaction.dart';
 
@@ -43,22 +44,22 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     print(groupedTeansactionsValues);
     return Card(
-      elevation: 6,
-      margin: EdgeInsets.all(20),
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: Row(
-          // chart content // 
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: groupedTeansactionsValues.map((data) {
-            return Flexible(
-              fit: FlexFit.tight,
-              child: ChartBar(data['day'], data['amount'],
-                totalSpending == 0.0 ? 0.0 : (data['amount'] as double) / totalSpending,),
-            );
-          }).toList(),
+        elevation: 6,
+        margin: EdgeInsets.all(20),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Row(
+            // chart content // 
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: groupedTeansactionsValues.map((data) {
+              return Flexible(
+                fit: FlexFit.tight,
+                child: ChartBar(data['day'], data['amount'],
+                  totalSpending == 0.0 ? 0.0 : (data['amount'] as double) / totalSpending,),
+              );
+            }).toList(),
+          ),
         ),
-      ),
     );
   }
 }
